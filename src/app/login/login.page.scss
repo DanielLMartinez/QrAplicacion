@@ -1,0 +1,34 @@
+#Nick{
+    margin-top: 30%;
+    
+}
+#Pass{
+    margin-top: 20%;
+    
+}
+#Login{
+    margin-top: 10%;
+}
+#QR{
+    width: 400px;
+    height: 35px;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.animated-icon {
+    animation: rotate 1s linear infinite;
+    
+    cursor: pointer;
+    animation: rotate 0.5s linear alternate;
+    
+}
+

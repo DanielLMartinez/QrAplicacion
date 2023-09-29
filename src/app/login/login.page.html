@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title fill="clear">
+      Iniciar sesión
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 expand="full">Bienvenidos a RegistrAPP </h1>
+  <ion-icon name="qr-code-outline" id="QR" class="animated-icon" (click)="rotateIcon()"></ion-icon>
+  <ion-item id="Nick" fill="clear" color="black">
+    <ion-label position="floating">Nombre de usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="username"></ion-input>
+  </ion-item>
+  <ion-item id="Pass" fill="clear" color="black">
+    <ion-label position="floating" >Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item >
+  
+  <ion-button expand="full" (click)="login()" id="Login" fill="clear" color="" >Iniciar sesión</ion-button>
+
+  <ion-button expand="full" (click)="backpass()" id="Login" fill="clear" color="">Restablecer Contraseña</ion-button>
+</ion-content>
