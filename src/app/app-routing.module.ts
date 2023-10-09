@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'bienvenido',
     loadChildren: () => import('./bienvenido/bienvenido.module').then( m => m.BienvenidoPageModule)
   },
+  {
+    path: 'pagprincipal',
+    loadChildren: () => import('./pagprincipal/pagprincipal.module').then( m => m.PagprincipalPageModule)
+  },
 
 ];
 
