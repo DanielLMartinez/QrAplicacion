@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'pagprincipal',
     loadChildren: () => import('./pagprincipal/pagprincipal.module').then( m => m.PagprincipalPageModule)
   },
+  {
+    path: 'profesor',
+    loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule)
+  },
 
 ];
 
