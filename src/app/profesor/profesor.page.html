@@ -1,13 +1,39 @@
-<ion-header [translucent]="true">
+<!-- Cabecera de la página -->
+<ion-header>
   <ion-toolbar>
-    <ion-title>profesor</ion-title>
+    <!-- Título de la página -->
+    <ion-title fill="clear">
+      Iniciar sesión
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profesor</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- Contenido principal de la página -->
+<ion-content>
+  <!-- Título principal de la página -->
+  <h1 expand="full">Bienvenidos a RegistrAPP</h1>
+
+  <!-- Icono de código QR con un controlador de eventos de clic -->
+  <ion-icon name="qr-code-outline" id="QR" class="animated-icon" (click)="rotateIcon()"></ion-icon>
+
+  <!-- Imagen debajo del icono de QR -->
+  <ion-img src="ruta_de_tu_imagen.jpg" alt="Imagen de ejemplo"></ion-img>
+
+  <!-- Campo de entrada para el nombre de usuario -->
+  <ion-item id="Nick" fill="clear" color="black">
+    <ion-label position="floating">Nombre de usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="username"></ion-input>
+  </ion-item>
+
+  <!-- Campo de entrada para la contraseña -->
+  <ion-item id="Pass" fill="clear" color="black">
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+  <!-- Botón para iniciar sesión -->
+  <ion-button expand="full" (click)="login()" id="Login" fill="clear" color="">Iniciar sesión</ion-button>
+
+  <!-- Botón para restablecer la contraseña -->
+  <ion-button expand="full" (click)="backpass()" id="Login" fill="clear" color="">Restablecer Contraseña</ion-button>
 </ion-content>

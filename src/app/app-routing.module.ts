@@ -12,9 +12,10 @@ const routes: Routes = [
   },
   {
     path: '', // Ruta por defecto cuando la aplicación se inicia
-    redirectTo: 'login',
+    redirectTo: 'login', // Redirige a 'login' si la URL está vacía
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'restartpass',
     loadChildren: () => import('./restartpass/restartpass.module').then( m => m.RestartpassPageModule)
   },
@@ -30,7 +31,6 @@ const routes: Routes = [
     path: 'profesor',
     loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule)
   },
-
 ];
 
 @NgModule({
