@@ -5,10 +5,12 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
+  
 })
 export class HomePage {
   
-  username: string = ''; // Asegúrate de que la propiedad esté definida
+  username: string = '';
+   
 
   constructor(private route: ActivatedRoute) {
     this.route.params.subscribe(params => {

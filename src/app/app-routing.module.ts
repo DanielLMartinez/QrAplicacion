@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '', // Ruta por defecto cuando la aplicación se inicia
-    redirectTo: 'login', // Redirige a 'login' si la URL está vacía
+    redirectTo: 'bienvenido', // Redirige a 'login' si la URL está vacía
     pathMatch: 'full'
   },
   {
