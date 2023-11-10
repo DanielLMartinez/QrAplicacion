@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "qrappdani": {
+      "hosting": {
+        "app": [
+          "qrappdani"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "qrappdani"
+  }
+}
