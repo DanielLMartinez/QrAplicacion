@@ -1,30 +1,39 @@
-#Nick{
+/* Ajustes para el elemento con ID 'Nick' */
+#Nick {
     margin-top: 30%;
-    
 }
+
+/* Estilos para el contenedor de fondo */
 .background-container {
     position: relative;
 }
-#fondoduoc{
-    
-    
+
+/* Ajustes para la imagen con ID 'Fondo' */
+#Fondo {
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 370px; /* Ancho de la imagen (ajusta según necesidades) */
+    height: 110px; /* Altura de la imagen (ajusta según necesidades) */
+    object-fit: cover; /* Ajusta la propiedad object-fit según tus necesidades */
 }
-#Pass{
+
+/* Ajustes para el elemento con ID 'Pass' */
+#Pass {
     margin-top: 20%;
-    
 }
-#Login{
+
+/* Ajustes para el elemento con ID 'Login' */
+#Login {
     margin-top: 10%;
 }
-#QR{
+
+/* Ajustes para el elemento con ID 'QR' */
+#QR {
     width: 400px;
     height: 35px;
 }
+
+/* Animación de rotación */
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
@@ -35,12 +44,22 @@
     }
 }
 
-
+/* Estilos para el icono animado */
 .animated-icon {
     animation: rotate 1s linear infinite;
-    
     cursor: pointer;
     animation: rotate 0.5s linear alternate;
-    
 }
 
+/* Ajustes para el elemento <h1> */
+h1 {
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Estilos para los botones de iniciar sesión y recuperar contraseña */
+.iniciar-button,
+.recuperar-button {
+    width: 160px; /* Ancho de los botones (ajusta según necesidades) */
+    margin: 10px auto; /* Centra los botones horizontalmente y agrega un pequeño margen */
+    display: block; /* Asegura que los botones estén en una línea */
+}
