@@ -23,6 +23,6 @@ export class BienvenidoPage {
     // Coloca aquí el código que deseas ejecutar cuando se selecciona Profesores
     console.log('Profesores seleccionados');
     this.username = 'Sergio.mellado@profesorduoc.cl'
-    this.router.navigate(['/login',]);
+    this.router.navigate(['/profesor',]);
   }
 }

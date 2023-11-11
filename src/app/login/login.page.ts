@@ -37,18 +37,7 @@ export class LoginPage {
     ) {
       const shortenedUsername = this.username.substring(0, 7);
       this.router.navigate(['/home', { username: shortenedUsername }]);
-    } else {
-      if (
-        this.username === 'Sergio.mellado@profesorduoc.cl' &&
-        this.password === '1234' &&
-        this.username.includes('@profesorduoc.cl') &&
-        this.password.length > 3
-      ) {
-        const shortenedUsername = this.username.substring(0, 7);
-        this.router.navigate(['/home', { username: shortenedUsername }]);
-      } else {
-        // Lógica para manejar credenciales incorrectas
-      }
     }
+      
   }
 }

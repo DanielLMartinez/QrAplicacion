@@ -1,39 +1,31 @@
-<!-- Cabecera de la página -->
+
+
 <ion-header>
   <ion-toolbar>
-    <!-- Título de la página -->
     <ion-title fill="clear">
-      Iniciar sesión
+      inicio
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<!-- Contenido principal de la página -->
-<ion-content>
-  <!-- Título principal de la página -->
-  <h1 expand="full">Bienvenidos a RegistrAPP</h1>
+<ion-content class="background-container">
+  <h1 expand="full">RegistrAPP</h1>
+  <ion-img src="https://pbs.twimg.com/profile_images/1273019238282866689/yEn2L7ny_400x400.jpg" alt="Fondoduoc"
+    id="Fondo"></ion-img>
 
-  <!-- Icono de código QR con un controlador de eventos de clic -->
-  <ion-icon name="qr-code-outline" id="QR" class="animated-icon" (click)="rotateIcon()"></ion-icon>
-
-  <!-- Imagen debajo del icono de QR -->
-  <ion-img src="ruta_de_tu_imagen.jpg" alt="Imagen de ejemplo"></ion-img>
-
-  <!-- Campo de entrada para el nombre de usuario -->
   <ion-item id="Nick" fill="clear" color="black">
-    <ion-label position="floating">Nombre de usuario</ion-label>
-    <!--<ion-input type="text" [(ngModel)]="username"></ion-input>-->
+    <ion-label position="floating">Correo </ion-label>
+    <ion-input type="text" [(ngModel)]="username" placeholder="Ingrese su correo"></ion-input>
   </ion-item>
 
-  <!-- Campo de entrada para la contraseña -->
   <ion-item id="Pass" fill="clear" color="black">
     <ion-label position="floating">Contraseña</ion-label>
-    <!--<ion-input type="password" [(ngModel)]="password"></ion-input>-->
+    <ion-input type="password" [(ngModel)]="password" placeholder="Ingrese su clave"></ion-input>
   </ion-item>
 
   <!-- Botón para iniciar sesión -->
-  <ion-button expand="full" (click)="login()" id="Login" fill="clear" color="">Iniciar sesión</ion-button>
+  <ion-button (click)="login()" class="iniciar-button">Iniciar</ion-button>
 
-  <!-- Botón para restablecer la contraseña -->
-  <ion-button expand="full" (click)="backpass()" id="Login" fill="clear" color="">Restablecer Contraseña</ion-button>
+  <!-- Botón para recuperar contraseña -->
+  <ion-button (click)="backpass()" class="recuperar-button">Recuperar Contraseña</ion-button>
 </ion-content>
