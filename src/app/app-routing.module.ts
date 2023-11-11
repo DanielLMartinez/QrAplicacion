@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'profesor',
     loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule)
+  },  {
+    path: 'miperfil',
+    loadChildren: () => import('./miperfil/miperfil.module').then( m => m.MiperfilPageModule)
   },
+
 ];
 
 @NgModule({

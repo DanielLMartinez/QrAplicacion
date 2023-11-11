@@ -13,7 +13,7 @@
     top: 0;
     left: 0;
     width: 370px; /* Ancho de la imagen (ajusta según necesidades) */
-    height: 110px; /* Altura de la imagen (ajusta según necesidades) */
+    height: 100px; /* Altura de la imagen (ajusta según necesidades) */
     object-fit: cover; /* Ajusta la propiedad object-fit según tus necesidades */
 }
 
@@ -58,7 +58,8 @@ h1 {
 
 /* Estilos para los botones de iniciar sesión y recuperar contraseña */
 .iniciar-button,
-.recuperar-button {
+.recuperar-button,
+.crear-button {
     width: 160px; /* Ancho de los botones (ajusta según necesidades) */
     margin: 10px auto; /* Centra los botones horizontalmente y agrega un pequeño margen */
     display: block; /* Asegura que los botones estén en una línea */
