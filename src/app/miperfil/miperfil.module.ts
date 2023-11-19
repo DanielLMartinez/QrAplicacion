@@ -1,20 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { MiperfilPageRoutingModule } from './miperfil-routing.module';
-
+import { FormsModule } from '@angular/forms';
 import { MiperfilPage } from './miperfil.page';
 
 @NgModule({
+  declarations: [MiperfilPage],
   imports: [
     CommonModule,
-    FormsModule,
-    IonicModule,
-    MiperfilPageRoutingModule
+    IonicModule,  // Asegúrate de agregar esta línea
+    FormsModule,  // Asegúrate de agregar esta línea
   ],
-  declarations: [MiperfilPage]
 })
 export class MiperfilPageModule {}

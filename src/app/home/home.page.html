@@ -1,35 +1,49 @@
-<ion-menu contentId="main-content">
-  <!-- ... (mismo contenido) ... -->
-</ion-menu>
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu Content</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">Mi perfil</ion-content>
-  <ion-content class="ion-padding">Mis Registros</ion-content>
-  <ion-content class="ion-padding">Mis Justificaicones</ion-content>
-  <ion-content class="ion-padding">Cerrar sesion</ion-content>
-  
-</ion-menu>
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- home.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home<ion-icon name="qr-code-outline"></ion-icon></ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-titl> home</ion-titl><ion-icon name="qr-code-outline"></ion-icon></ion-title>
-    </ion-toolbar>
-  </ion-header>
-</div>
+<ion-content class="ion-padding">
+  <div *ngIf="username">
+    <h1>Welcome, {{ username }}</h1>
+    <!-- Input para subir imagen -->
+    <ion-item>
+      <ion-input type="file" accept="image/*" (change)="onFileSelected($event)"></ion-input>
+    </ion-item>
+
+    <!-- Formulario para los datos del usuario -->
+    <form (ngSubmit)="guardarCambios()">
+      <!-- Nombre completo -->
+      <ion-item>
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input [(ngModel)]="nombreCompleto" name="nombreCompleto"></ion-input>
+      </ion-item>
+
+      <!-- Correo -->
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="correo" name="correo"></ion-input>
+      </ion-item>
+
+      <!-- Teléfono -->
+      <ion-item>
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input [(ngModel)]="telefono" name="telefono"></ion-input>
+      </ion-item>
+
+      <!-- Dirección -->
+      <ion-item>
+        <ion-label position="floating">Address</ion-label>
+        <ion-input [(ngModel)]="direccion" name="direccion"></ion-input>
+      </ion-item>
+      <br>
+      <!-- Botón para guardar cambios -->
+      <ion-button type="submit">Edit</ion-button>
+    </form>
+  </div>
+</ion-content>
