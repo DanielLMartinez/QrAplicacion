@@ -1,49 +1,33 @@
-<!-- home.page.html -->
+<!-- login.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Home<ion-icon name="qr-code-outline"></ion-icon></ion-title>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div *ngIf="username">
-    <h1>Welcome, {{ username }}</h1>
-    <!-- Input para subir imagen -->
-    <ion-item>
-      <ion-input type="file" accept="image/*" (change)="onFileSelected($event)"></ion-input>
-    </ion-item>
+  <!-- Contenido de la pantalla principal -->
+  <h2>Bienvenido a RegistrAPP</h2>
+  <p>Recuerda marcar tu asistencia registrando el ID proporcionado por tu profesor y la sección</p>
+  <img src="https://pbs.twimg.com/profile_images/1273019238282866689/yEn2L7ny_400x400.jpg" alt="Imagen principal">
 
-    <!-- Formulario para los datos del usuario -->
-    <form (ngSubmit)="guardarCambios()">
-      <!-- Nombre completo -->
-      <ion-item>
-        <ion-label position="floating">Full Name</ion-label>
-        <ion-input [(ngModel)]="nombreCompleto" name="nombreCompleto"></ion-input>
-      </ion-item>
+  <!-- Campos para ingresar ID y Sección -->
+  <ion-item fill="clear" color="black">
+    <ion-label position="floating">ID clase</ion-label>
+    <ion-input type="text" [(ngModel)]="id" placeholder="Ej: 12345678A"></ion-input>
+  </ion-item>
 
-      <!-- Correo -->
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input [(ngModel)]="correo" name="correo"></ion-input>
-      </ion-item>
+  <ion-item fill="clear" color="black">
+    <ion-label position="floating">Ingresa Sección</ion-label>
+    <ion-input type="text" [(ngModel)]="seccion" placeholder="Ej: PY7458-004V"></ion-input>
+  </ion-item>
 
-      <!-- Teléfono -->
-      <ion-item>
-        <ion-label position="floating">Phone</ion-label>
-        <ion-input [(ngModel)]="telefono" name="telefono"></ion-input>
-      </ion-item>
+  <!-- Botón para guardar registro -->
+  <ion-button (click)="registro()" class="registrar-button">Registrar</ion-button>
 
-      <!-- Dirección -->
-      <ion-item>
-        <ion-label position="floating">Address</ion-label>
-        <ion-input [(ngModel)]="direccion" name="direccion"></ion-input>
-      </ion-item>
-      <br>
-      <!-- Botón para guardar cambios -->
-      <ion-button type="submit">Edit</ion-button>
-    </form>
-  </div>
+  <!-- También puedes incluir el router-outlet para cargar componentes dinámicamente -->
+  <ion-router-outlet></ion-router-outlet>
 </ion-content>

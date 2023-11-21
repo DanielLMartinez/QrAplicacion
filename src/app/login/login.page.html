@@ -1,9 +1,7 @@
-<!-- login.page.html -->
-
 <ion-header>
   <ion-toolbar>
     <ion-title fill="clear">
-      inicio
+      Login
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,7 +16,7 @@
 
   <ion-item id="Nick" fill="clear" color="black">
     <ion-label position="floating">Correo </ion-label>
-    <ion-input type="text" [(ngModel)]="username" placeholder="Ingrese su correo"></ion-input>
+    <ion-input type="text" [(ngModel)]="email" placeholder="Ingrese su correo"></ion-input>
   </ion-item>
 
   <ion-item id="Pass" fill="clear" color="black">
@@ -32,6 +30,7 @@
   <!-- Botón para recuperar contraseña -->
   <ion-button (click)="backpass()" class="recuperar-button">Recuperar Contraseña</ion-button>
 
-  <!-- Botón para recuperar contraseña -->
-  <ion-button (click)="backpass()" class="crear-button">Crear Cuenta</ion-button>
+  <!-- Botón para crear cuenta -->
+  <!-- Descomenta este botón si implementas la función correspondiente en tu componente TypeScript -->
+  <!-- <ion-button (click)="crearCuenta()" class="crear-button">Crear Cuenta</ion-button> -->
 </ion-content>

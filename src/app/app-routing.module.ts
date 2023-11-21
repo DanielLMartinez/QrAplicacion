@@ -12,20 +12,35 @@ const routes: Routes = [
   },
   {
     path: '', // Ruta por defecto cuando la aplicación se inicia
-    redirectTo: 'bienvenido', // Redirige a 'login' si la URL está vacía
+    redirectTo: 'bienvenido', // Redirige a 'bienvenido' si la URL está vacía
     pathMatch: 'full'
   },
   {
     path: 'restartpass',
-    loadChildren: () => import('./restartpass/restartpass.module').then( m => m.RestartpassPageModule)
+    loadChildren: () => import('./restartpass/restartpass.module').then(m => m.RestartpassPageModule)
   },
   {
     path: 'bienvenido',
-    loadChildren: () => import('./bienvenido/bienvenido.module').then( m => m.BienvenidoPageModule)
+    redirectTo: 'login', // Redirige a 'login' cuando se accede a 'bienvenido'
+    pathMatch: 'full'
   },
   {
     path: 'profesor',
-    loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule)
+    loadChildren: () => import('./profesor/profesor.module').then(m => m.ProfesorPageModule)
+  },
+  {
+    path: 'miperfil',
+    redirectTo: 'miperfil', // Redirige a 'miperfil' cuando se accede a 'home'
+    pathMatch: 'full'
+  },
+  {
+    path: 'miperfil',
+    loadChildren: () => import('./miperfil/miperfil.module').then(m => m.MiperfilPageModule)
+  },
+  {
+    path: 'ayuda',
+    redirectTo: 'restartpass', // Redirige a 'restartpass' cuando se accede a 'ayuda'
+    pathMatch: 'full'
   },
 ];
 

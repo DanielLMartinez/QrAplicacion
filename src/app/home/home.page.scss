@@ -1,30 +1,29 @@
-#main-content {
-    ion-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    h1 {
-      text-align: center;
-      margin-top: 10px; /* Ajusta el margen según tus necesidades */
-    }
-  
-    ion-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    ion-input {
-      max-width: 80%; /* Ajusta el ancho según tus necesidades */
-    }
-  
+/* Agrega estos estilos en tu archivo home.page.scss */
 
-    
-    .profile-picture {
-      border-radius: 50%;
-      border: 4px solid white; /* Ajusta el ancho y color img */
-    }
+#main-content {
+  ion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-  
+
+  h2 {
+    margin-top: 10px; /* Ajusta el margen superior según tus necesidades */
+  }
+
+  img {
+    margin-top: 5px; /* Ajusta la distancia de la imagen desde la parte superior */
+  }
+
+  ion-item {
+    max-width: 80%; /* Ajusta el ancho máximo según tus necesidades */
+    margin-top: 10px; /* Ajusta el margen superior de los ion-items */
+  }
+
+  ion-button {
+    width: auto; /* Permite que el botón ocupe solo el ancho necesario */
+    margin-left: auto; /* Mueve el botón a la derecha */
+    margin-top: 10px; /* Ajusta el margen superior del botón según tus necesidades */
+  }
+}

@@ -1,47 +1,38 @@
-// home.page.ts
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class HomePage implements OnInit {
-  username: string = '';
-  profilePicture: string = 'URL_DE_TU_IMAGEN';
+export class LoginPage {
+  email: string = '';
+  password: string = '';
 
-  // Propiedades para los datos del usuario
-  nombreCompleto: string = 'Sergio Mellado';
-  correo: string = 'serg.mellado@example.com';
-  telefono: string = '123456789';
-  direccion: string = 'Los Palomos 1234';
+  constructor(
+    private afAuth: AngularFireAuth,
+    private router: Router,
+    private db: AngularFireDatabase
+  ) {}
 
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit() {
-    // Suscribe a los cambios en los parámetros de la ruta
-    this.route.params.subscribe((params) => {
-      this.username = params['username'];
-    });
-  }
-
-  guardarCambios(): void {
-    console.log('Changes saved:');
-    console.log('Full Name:', this.nombreCompleto);
-    console.log('Email:', this.correo);
-    console.log('Phone:', this.telefono);
-    console.log('Address:', this.direccion);
-  }
-
-  onFileSelected(event: any): void {
-    const file: File = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = (e: any) => {
-      this.profilePicture = e.target.result as string;
-    };
-
-    reader.readAsDataURL(file);
+  async login() {
+    try {
+      const result = await this.afAuth.signInWithEmailAndPassword(this.email, this.password);
+      if (result.user) {
+        // Añadir más información al registro si es necesario
+        this.db.list('usuarios').push({
+          userId: result.user.uid,
+          email: result.user.email
+        });
+        this.router.navigate(['/home']);
+      } else {
+        console.error('Error: El objeto de usuario es nulo.');
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+    }
   }
 }
