@@ -1,38 +1,29 @@
+// home.page.ts
+
 import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
 })
-export class LoginPage {
+export class HomePage {
   email: string = '';
   password: string = '';
 
   constructor(
-    private afAuth: AngularFireAuth,
-    private router: Router,
-    private db: AngularFireDatabase
+    private afAuth: '',
+    private db: '',
+    private router: Router
   ) {}
 
   async login() {
     try {
-      const result = await this.afAuth.signInWithEmailAndPassword(this.email, this.password);
-      if (result.user) {
-        // Añadir más información al registro si es necesario
-        this.db.list('usuarios').push({
-          userId: result.user.uid,
-          email: result.user.email
-        });
-        this.router.navigate(['/home']);
-      } else {
-        console.error('Error: El objeto de usuario es nulo.');
-      }
+      // ... tu lógica de inicio de sesión
+      this.router.navigate(['/home']);
     } catch (error) {
-      console.error('Error al iniciar sesión:', error);
+      console.error(error);
     }
   }
 }

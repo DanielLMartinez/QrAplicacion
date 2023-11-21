@@ -28,9 +28,13 @@
   <ion-button (click)="login()" class="iniciar-button">Iniciar</ion-button>
 
   <!-- Botón para recuperar contraseña -->
-  <ion-button (click)="backpass()" class="recuperar-button">Recuperar Contraseña</ion-button>
+  <ion-button (click)="recuperar()" class="recuperar-button">Recuperar Contraseña</ion-button>
 
   <!-- Botón para crear cuenta -->
   <!-- Descomenta este botón si implementas la función correspondiente en tu componente TypeScript -->
   <!-- <ion-button (click)="crearCuenta()" class="crear-button">Crear Cuenta</ion-button> -->
+  <ion-app>
+    <ion-router-outlet></ion-router-outlet>
+  </ion-app>
+  
 </ion-content>

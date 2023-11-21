@@ -1,13 +1,19 @@
-// home-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePage } from './home.page';
+
+// Importa las páginas correctamente
+import { HomePage } from './home.module';
+import { HomePageModule } from './home.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage,
+    component: HomePageModule,
   },
+  {
+    path:'home',
+    component: HomePage,
+  }
 ];
 
 @NgModule({

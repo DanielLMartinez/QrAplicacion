@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../tu-ruta-del-servicio/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +9,17 @@ export class LoginPage {
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor() {}
 
   async login() {
-    try {
-      await this.authService.login(this.email, this.password);
-    } catch (error) {
-      console.error('Error al iniciar sesión:', error);
+    // Aquí puedes agregar tu lógica de inicio de sesión
+    // Por ejemplo, podrías verificar las credenciales de manera local
+    if (this.email === 'usuario@correo.com' && this.password === 'uwu123') {
+      console.log('Inicio de sesión exitoso');
+    } else {
+      console.log('Credenciales incorrectas');
     }
   }
+
+  // Puedes agregar otros métodos relacionados con la autenticación aquí
 }
