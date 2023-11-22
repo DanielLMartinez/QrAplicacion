@@ -13,8 +13,6 @@ export class HomePage {
   password: string = '';
 
   constructor(
-    private afAuth: '',
-    private db: '',
     private router: Router
   ) {}
 
