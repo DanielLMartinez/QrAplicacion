@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyADPsj5q91vzL0P2L0IceRSWSKWmHsAegs",
+    authDomain: "qrappdani.firebaseapp.com",
+    databaseURL: "https://qrappdani-default-rtdb.firebaseio.com",
+    projectId: "qrappdani",
+    storageBucket: "qrappdani.appspot.com",
+    messagingSenderId: "131965098378",
+    appId: "1:131965098378:web:78b4f10e258518a6ad9073"
+  }
 };
 
 /*

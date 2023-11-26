@@ -8,21 +8,21 @@ import { Router } from '@angular/router';
 })
 export class BienvenidoPage {
   constructor(private router: Router) {}
-  username: string = '';
-  password: string = '';
 
+  // Llama a la función selectAlumnos al hacer clic en el botón
   selectAlumnos() {
-    // Coloca aquí el código que deseas ejecutar cuando se selecciona Alumnos
-    console.log('Alumnos seleccionados');
-    this.username='Sergio.mellado@duocuc.cl'
-    
-    this.router.navigate(['/login', ]);
+    this.router.navigate(['/login']);
   }
 
+  // Llama a la función selectProfesores al hacer clic en el botón
   selectProfesores() {
-    // Coloca aquí el código que deseas ejecutar cuando se selecciona Profesores
     console.log('Profesores seleccionados');
-    this.username = 'Sergio.mellado@profesorduoc.cl'
-    this.router.navigate(['/profesor',]);
+    this.router.navigate(['/profesor']);
+  }
+
+  // Llama a la función crearCuenta al hacer clic en el botón
+  crearCuenta() {
+    console.log('Crear cuenta seleccionada');
+    this.router.navigate(['/crear-cuenta']);
   }
 }

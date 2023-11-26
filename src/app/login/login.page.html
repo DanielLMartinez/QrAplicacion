@@ -1,40 +1,33 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title fill="clear">
-      Login
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="background-container">
-  <h1 expand="full">RegistrAPP</h1>
+<ion-content>
   <ion-img
     src="https://pbs.twimg.com/profile_images/1273019238282866689/yEn2L7ny_400x400.jpg"
     alt="Fondoduoc"
     id="Fondo"
   ></ion-img>
 
-  <ion-item id="Nick" fill="clear" color="black">
-    <ion-label position="floating">Correo </ion-label>
-    <ion-input type="text" [(ngModel)]="email" placeholder="Ingrese su correo"></ion-input>
-  </ion-item>
+  <form [formGroup]="credentials">
 
-  <ion-item id="Pass" fill="clear" color="black">
-    <ion-label position="floating">Contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="password" placeholder="Ingrese su clave"></ion-input>
-  </ion-item>
+    <ion-item id="Nick" fill="clear" color="black">
+      <ion-label position="floating">Correo </ion-label>
+      <ion-input type="text" formControlName="email" placeholder="Ingrese su correo"></ion-input>
+    </ion-item>
 
-  <!-- Botón para iniciar sesión -->
-  <ion-button (click)="login()" class="iniciar-button">Iniciar</ion-button>
+    <ion-item id="Pass" fill="clear" color="black">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password" placeholder="Ingrese su clave"></ion-input>
+    </ion-item>
 
-  <!-- Botón para recuperar contraseña -->
-  <ion-button type="button" class="recuperar-button">Recuperar Contraseña</ion-button>
+    <ion-item id="Tipo" lines="full" color="black">
+      <ion-label>Tipo de cuenta</ion-label>
+      <ion-select formControlName="tipoCuenta">
+        <ion-select-option value="alumno">Alumno</ion-select-option>
+        <ion-select-option value="profesor">Profesor</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <!-- Botón para crear cuenta -->
-  <!-- Descomenta este botón si implementas la función correspondiente en tu componente TypeScript -->
-  <!-- <ion-button (click)="crearCuenta()" class="crear-button">Crear Cuenta</ion-button> -->
-  <ion-app>
-    <ion-router-outlet></ion-router-outlet>
-  </ion-app>
-  
+    <ion-item>
+      <ion-button (click)="login()" class="iniciar-button">Iniciar</ion-button>
+    </ion-item>
+
+  </form>
 </ion-content>

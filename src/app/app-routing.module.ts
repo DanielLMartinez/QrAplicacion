@@ -37,6 +37,11 @@ const routes: Routes = [
     redirectTo: 'restartpass',
     pathMatch: 'full',
   },
+  {
+    path: 'crear-cuenta',
+    loadChildren: () => import('./crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule)
+  },
+
 ];
 
 @NgModule({

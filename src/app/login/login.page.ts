@@ -1,4 +1,9 @@
+// login.page.ts
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -6,20 +11,46 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  email: string = '';
-  password: string = '';
 
-  constructor() {}
+  credentials!: FormGroup;
 
-  async login() {
-    // Aquí puedes agregar tu lógica de inicio de sesión
-    // Por ejemplo, podrías verificar las credenciales de manera local
-    if (this.email === 'usuario@correo.com' && this.password === 'uwu123') {
-      console.log('Inicio de sesión exitoso');
-    } else {
-      console.log('Credenciales incorrectas');
-    }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private navCtrl: NavController  // Importa NavController
+  ) { }
+
+  get email() { return this.credentials.get('email'); }
+  get password() { return this.credentials.get('password'); }
+  get tipoCuenta() { return this.credentials.get('tipoCuenta'); }
+
+  ionViewWillEnter() {
+    this.credentials = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      tipoCuenta: ['', Validators.required], // Nuevo campo para el tipo de cuenta
+    });
   }
 
-  // Puedes agregar otros métodos relacionados con la autenticación aquí
+  async login() {
+    console.log("intentando ingresar");
+    const user = await this.authService.login(this.credentials.value);
+
+    if (user) {
+      // Obtener el tipo de cuenta del usuario autenticado directamente desde el servicio
+      const tipoCuenta = this.authService.getTipoCuenta();
+
+      // Redirigir según el tipo de cuenta
+      if (tipoCuenta === 'alumno') {
+        this.navCtrl.navigateRoot('/home');  // Utiliza navCtrl para navegar y elimina replaceUrl
+      } else if (tipoCuenta === 'profesor') {
+        this.navCtrl.navigateRoot('/homeprofesor');  // Utiliza navCtrl para navegar y elimina replaceUrl
+      } else {
+        console.log("Tipo de cuenta no reconocido");
+      }
+    } else {
+      console.log("error al ingresar");
+    }
+  }
 }
