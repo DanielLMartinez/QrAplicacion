@@ -10,15 +10,9 @@ export class BienvenidoPage {
   constructor(private router: Router) {}
 
   // Llama a la función selectAlumnos al hacer clic en el botón
-  selectAlumnos() {
+  ingresoWeb() {
     console.log('Alumnos seleccionados');
     this.router.navigate(['/login']);
-  }
-
-  // Llama a la función selectProfesores al hacer clic en el botón
-  selectProfesores() {
-    console.log('Profesores seleccionados');
-    this.router.navigate(['/profesor']);
   }
 
   // Llama a la función crearCuenta al hacer clic en el botón
