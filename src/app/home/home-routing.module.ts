@@ -8,7 +8,7 @@ import { HomePageModule } from './home.module';
 const routes: Routes = [
   {
     path: '',
-    component: HomePageModule,
+    component: HomePage,
   }
 ];
 

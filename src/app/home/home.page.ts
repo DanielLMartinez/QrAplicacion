@@ -1,6 +1,7 @@
 // home.page.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,19 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  email: string = '';
-  password: string = '';
 
   constructor(
+    private authService: AuthService,
     private router: Router
   ) {}
 
-  async login() {
-    try {
-      // ... tu lógica de inicio de sesión
-      this.router.navigate(['/home']);
-    } catch (error) {
-      console.error(error);
+  ionViewWillEnter() {
+    // Verificar si el usuario está autenticado al entrar en la vista
+    if (!this.authService.isAuthenticated()) {
+      // Si no está autenticado, redirigir al login
+      this.router.navigateByUrl('/login');
     }
   }
 }

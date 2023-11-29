@@ -16,11 +16,6 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule),
   },
   {
-    path: '',
-    redirectTo: 'bienvenido',
-    pathMatch: 'full',
-  },
-  {
     path: 'restartpass',
     loadChildren: () => import('./restartpass/restartpass.module').then(m => m.RestartpassPageModule),
   },
@@ -41,7 +36,11 @@ const routes: Routes = [
     path: 'crear-cuenta',
     loadChildren: () => import('./crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule)
   },
-
+  {
+    path: '',
+    redirectTo: 'bienvenido',
+    pathMatch: 'full',
+  }
 ];
 
 @NgModule({

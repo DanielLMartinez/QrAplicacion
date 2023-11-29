@@ -26,7 +26,7 @@ export class LoginPage {
     });
   }
 
-  async login() {
+  async ingresar() {
     console.log("intentando ingresar");
     const user = await this.authService.login(this.credentials.value);
 
@@ -36,10 +36,9 @@ export class LoginPage {
 
       // Redirigir según el tipo de cuenta
       if (tipoCuenta === 'alumno') {
-        this.router.navigate(['/home'], { replaceUrl: true });  // Utiliza navCtrl para navegar y agrega replaceUrl
+        this.router.navigate(['/home'], { replaceUrl: true });
       } else if (tipoCuenta === 'profesor') {
-        this.router.navigate(['/homeprofesor'], { replaceUrl: true });  // Utiliza navCtrl para navegar y agrega replaceUrl
-      } else {
+        this.router.navigate(['/homeprofesor'], { replaceUrl: true });
         console.log("Tipo de cuenta no reconocido");
       }
     } else {
