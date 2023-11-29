@@ -47,6 +47,7 @@ export class CrearCuentaPage implements OnInit {
       });
   
       if (user) {
+        console.log("usuario registrado");
         this.router.navigateByUrl('/bienvenido', { replaceUrl: true });
       } else {
         console.log("error al registrar");

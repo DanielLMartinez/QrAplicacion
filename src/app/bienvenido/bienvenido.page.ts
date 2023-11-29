@@ -11,6 +11,7 @@ export class BienvenidoPage {
 
   // Llama a la función selectAlumnos al hacer clic en el botón
   selectAlumnos() {
+    console.log('Alumnos seleccionados');
     this.router.navigate(['/login']);
   }
 

@@ -1,9 +1,7 @@
-// login.page.ts
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -17,15 +15,10 @@ export class LoginPage {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder,
-    private navCtrl: NavController  // Importa NavController
-  ) { }
+    private formBuilder: FormBuilder
+  ) {}
 
-  get email() { return this.credentials.get('email'); }
-  get password() { return this.credentials.get('password'); }
-  get tipoCuenta() { return this.credentials.get('tipoCuenta'); }
-
-  ionViewWillEnter() {
+  ngOnInit () {
     this.credentials = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -43,9 +36,9 @@ export class LoginPage {
 
       // Redirigir según el tipo de cuenta
       if (tipoCuenta === 'alumno') {
-        this.navCtrl.navigateRoot('/home');  // Utiliza navCtrl para navegar y elimina replaceUrl
+        this.router.navigate(['/home'], { replaceUrl: true });  // Utiliza navCtrl para navegar y agrega replaceUrl
       } else if (tipoCuenta === 'profesor') {
-        this.navCtrl.navigateRoot('/homeprofesor');  // Utiliza navCtrl para navegar y elimina replaceUrl
+        this.router.navigate(['/homeprofesor'], { replaceUrl: true });  // Utiliza navCtrl para navegar y agrega replaceUrl
       } else {
         console.log("Tipo de cuenta no reconocido");
       }
