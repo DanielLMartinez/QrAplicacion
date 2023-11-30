@@ -39,7 +39,6 @@ export class LoginPage {
         this.router.navigate(['/home'], { replaceUrl: true });
       } else if (tipoCuenta === 'profesor') {
         this.router.navigate(['/homeprofesor'], { replaceUrl: true });
-        console.log("Tipo de cuenta no reconocido");
       }
     } else {
       console.log("error al ingresar");

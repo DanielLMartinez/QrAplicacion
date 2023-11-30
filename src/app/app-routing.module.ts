@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./restartpass/restartpass.module').then(m => m.RestartpassPageModule),
   },
   {
+    path: 'homeprofesor',
+    loadChildren: () => import('./homeprofesor/homeprofesor.module').then(m => m.HomeprofesorPageModule),
+  },  
+  {
     path: 'profesor',
     loadChildren: () => import('./profesor/profesor.module').then(m => m.ProfesorPageModule),
   },
