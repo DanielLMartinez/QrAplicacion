@@ -22,4 +22,31 @@ export class HomePage {
       this.router.navigateByUrl('/login');
     }
   }
+
+  openMiPerfil() {
+    // Navega a la página de perfil
+    this.router.navigate(['/miperfil']);
+  }
+
+  openMisRegistros() {
+    // Navega a la página de registros
+    this.router.navigate(['/misregistros']);
+  }
+
+  openMisJustificaciones() {
+    // Navega a la página de justificaciones
+    this.router.navigate(['/misjustificaciones']);
+  }
+
+  cerrarSesion() {
+    // Cierra la sesión del usuario
+    this.authService.logout();
+    // Redirige al login
+    this.router.navigateByUrl('/bienvenido');
+  }
+
+  selectRegistrar(){
+    this.router.navigateByUrl('/registrar');
+  }
+
 }
