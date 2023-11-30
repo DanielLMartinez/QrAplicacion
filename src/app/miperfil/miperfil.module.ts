@@ -8,6 +8,7 @@ import { MiperfilPage } from './miperfil.page';
   declarations: [MiperfilPage],
   imports: [
     CommonModule,
+    FormsModule,
     IonicModule,  // Asegúrate de agregar esta línea
     FormsModule,  // Asegúrate de agregar esta línea
   ],
