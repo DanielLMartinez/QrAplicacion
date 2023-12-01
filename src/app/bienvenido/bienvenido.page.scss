@@ -14,16 +14,16 @@ ion-content {
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Ajusta para que la imagen cubra todo el contenedor */
+        object-fit: cover;
       }
   
       .logo-text {
         position: absolute;
-        top: 50%; /* Ajusta la posición vertical según sea necesario */
-        left: 50%; /* Ajusta la posición horizontal según sea necesario */
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
-        color: white; /* Ajusta el color del texto */
-        font-size: 24px; /* Ajusta el tamaño del texto según sea necesario */
+        color: white;
+        font-size: 24px;
         text-align: center;
       }
     }

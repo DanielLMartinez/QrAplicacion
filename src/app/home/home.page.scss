@@ -7,7 +7,7 @@
 
   h1 {
     text-align: center;
-    margin-top: 10px; /* Ajusta el margen según tus necesidades */
+    margin-top: 10px;
   }
 
   ion-item {
@@ -17,18 +17,18 @@
   }
 
   ion-input {
-    max-width: 80%; /* Ajusta el ancho según tus necesidades */
+    max-width: 80%;
   }
 
 
   
   .profile-picture {
     border-radius: 50%;
-    border: 4px solid white; /* Ajusta el ancho y color img */
+    border: 4px solid white;
   }
   .Registrar-button{
-    width: 160px; /* Ancho de los botones (ajusta según necesidades) */
-    margin: 10px auto; /* Centra los botones horizontalmente y agrega un pequeño margen */
-    display: block; /* Asegura que los botones estén en una línea */
+    width: 160px;
+    margin: 10px auto;
+    display: block;
   }
 }

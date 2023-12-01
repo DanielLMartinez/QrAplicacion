@@ -14,7 +14,6 @@ export class AuthService {
   constructor(
     private auth: Auth
   ) {
-    // Inicia la suscripción al cambio de estado de autenticación
     onAuthStateChanged(this.auth, (user) => {
       this.currentUserSubject.next(user);
     });
@@ -28,7 +27,6 @@ export class AuthService {
         password
       );
 
-      // Aquí, almacena el tipo de cuenta en localStorage o donde prefieras
       localStorage.setItem('tipoCuenta', tipoCuenta);
 
       return user;
@@ -56,13 +54,10 @@ export class AuthService {
     return signOut(this.auth);
   }
 
-  // Obtener el tipo de cuenta del usuario
   getTipoCuenta(): string {
-    // Recupera el tipo de cuenta almacenado en localStorage
-    return localStorage.getItem('tipoCuenta') || 'alumno'; // Valor predeterminado: 'alumno' si no se encuentra el tipo de cuenta
+    return localStorage.getItem('tipoCuenta') || 'alumno';
   }
 
-  // Método para verificar si el usuario está autenticado
   isAuthenticated(): boolean {
     const user = this.auth.currentUser;
     return !!user;

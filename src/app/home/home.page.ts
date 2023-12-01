@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-home',
@@ -9,44 +10,58 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  idClase: string = '';
+  ingresaSeccion: string = ''; 
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private firebaseService: FirebaseService
   ) {}
 
   ionViewWillEnter() {
-    // Verificar si el usuario está autenticado al entrar en la vista
     if (!this.authService.isAuthenticated()) {
-      // Si no está autenticado, redirigir al login
       this.router.navigateByUrl('/login');
     }
   }
 
   openMiPerfil() {
-    // Navega a la página de perfil
     this.router.navigate(['/miperfil']);
   }
 
   openMisRegistros() {
-    // Navega a la página de registros
     this.router.navigate(['/misregistros']);
   }
 
   openMisJustificaciones() {
-    // Navega a la página de justificaciones
     this.router.navigate(['/misjustificaciones']);
   }
 
   cerrarSesion() {
-    // Cierra la sesión del usuario
     this.authService.logout();
-    // Redirige al login
     this.router.navigateByUrl('/bienvenido');
   }
 
-  selectRegistrar(){
-    this.router.navigateByUrl('/registrar');
+  registrarse() {
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigateByUrl('/login');
+      return;
+    }
+  
+    this.authService.currentUser$.subscribe(user => {
+      if (user) {
+        const idUsuario = user.uid || '';
+
+        this.firebaseService.addRegistroAlumno(idUsuario, this.idClase, this.ingresaSeccion)
+          .then(() => {
+            console.log('Registro de alumno creado exitosamente');
+
+          })
+          .catch((error: any) => {
+            console.error('Error al crear el registro del alumno:', error);
+          });
+      }
+    });
   }
 
 }

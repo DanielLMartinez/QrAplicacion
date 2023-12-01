@@ -5,14 +5,12 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- Elementos del menú -->
-  <ion-button fill="clear" color="black" class="ion-padding" href=""><ion-icon name="person-add-outline"></ion-icon> Registrar asistencia</ion-button>
+  <ion-button fill="clear" color="black" class="ion-padding" href=""><ion-icon name="person-add-outline" (click)="cerrarSesion()"></ion-icon>Cerrar Sesión</ion-button>
   <ion-button fill="clear" color="black" class="ion-padding" href=""><ion-icon name="person-outline"></ion-icon> Yo</ion-button>
   <ion-button fill="clear" color="black" class="ion-padding"><ion-icon name="accessibility-outline"></ion-icon> Sobre Nosotros</ion-button>
   <ion-button fill="clear" color="black" class="ion-padding"><ion-icon name="warning-outline"></ion-icon> Ayuda</ion-button>
 </ion-menu>
 
-<!-- Contenido principal -->
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
@@ -27,9 +25,17 @@
     <div>
       <h1>Bienvenido <ion-icon name="happy-outline"></ion-icon></h1>
     </div>
-    <ion-button>
-      Crear curso
-    </ion-button>
+    <ion-item>
+      <ion-label position="stacked">ID de Clase</ion-label>
+      <ion-input [(ngModel)]="idClase" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Ingresa Sección</ion-label>
+      <ion-input [(ngModel)]="ingresaSeccion" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-button (click)="crearRegistro()">Crear Registro</ion-button>
     <ion-button>
       Asistencia curso
     </ion-button>

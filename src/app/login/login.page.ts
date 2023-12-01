@@ -22,7 +22,7 @@ export class LoginPage {
     this.credentials = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      tipoCuenta: ['', Validators.required], // Nuevo campo para el tipo de cuenta
+      tipoCuenta: ['', Validators.required],
     });
   }
 
@@ -31,10 +31,7 @@ export class LoginPage {
     const user = await this.authService.login(this.credentials.value);
 
     if (user) {
-      // Obtener el tipo de cuenta del usuario autenticado directamente desde el servicio
       const tipoCuenta = this.authService.getTipoCuenta();
-
-      // Redirigir según el tipo de cuenta
       if (tipoCuenta === 'alumno') {
         this.router.navigate(['/home'], { replaceUrl: true });
       } else if (tipoCuenta === 'profesor') {

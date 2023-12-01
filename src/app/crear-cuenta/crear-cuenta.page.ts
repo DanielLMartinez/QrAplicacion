@@ -27,20 +27,17 @@ export class CrearCuentaPage implements OnInit {
     this.credentials = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      tipoCuenta: ['', Validators.required], // Nuevo campo para el tipo de cuenta
+      tipoCuenta: ['', Validators.required],
     });
   }
 
   async registrar() {
     console.log("intentando registrar");
   
-    // Obtén el valor del tipo de cuenta desde tu formulario o de donde lo tengas
     const tipoCuentaControl = this.credentials.get('tipoCuenta');
   
     if (tipoCuentaControl) {
       const tipoCuenta = tipoCuentaControl.value;
-  
-      // Pasa el tipo de cuenta junto con las credenciales al servicio de autenticación
       const user = await this.authService.register({
         ...this.credentials.value,
         tipoCuenta: tipoCuenta
