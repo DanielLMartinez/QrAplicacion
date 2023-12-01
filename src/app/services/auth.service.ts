@@ -19,12 +19,12 @@ export class AuthService {
     });
   }
 
-  async register({ email, password, tipoCuenta }: any) {
+  async register({ email, password, tipoCuenta,fono,nombreCom }: any) {
     try {
       const user = await createUserWithEmailAndPassword(
         this.auth,
         email,
-        password
+        password,
       );
 
       localStorage.setItem('tipoCuenta', tipoCuenta);
@@ -46,7 +46,9 @@ export class AuthService {
       return user;
     } catch (error) {
       console.log(error);
-      return null;
+      return {
+        
+      };
     }
   }
 

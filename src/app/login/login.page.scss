@@ -37,28 +37,28 @@ img {
 #Nick,
 #Pass {
     margin-bottom: 30px;
-    background-color: gray;
     border-color: transparent;
+    border-radius: 30px;
 }
 
 .iniciar-button {
     border-color: transparent;
     background-color: transparent;
-    size: 100px;
-    font-size: 100%;
-    position: none;
-
-
+    font-size: 25px; /* Ajusta el tamaño del texto según sea necesario */
+    width: 50%; /* Ocupa el ancho completo */
+    margin: 20px auto; /* Centra el botón horizontalmente */
 }
+
 
 .input-wrapper {
     background-color: transparent;
 }
 
 #Tipo {
-    margin-bottom: 30px;
-    position: relative;
-    width: auto;
+    margin-bottom: 50px;
+    position: center;
+    width: 50%; /* Ajusta el ancho según sea necesario */
     background-color: gray;
-
+    right: -80px;
+    border-radius: 10px; /* Ajusta el radio de borde según sea necesario */
 }

@@ -5,30 +5,29 @@
     align-items: center;
   }
 
-  h1 {
-    text-align: center;
-    margin-top: 10px;
-  }
-
   ion-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 15px; /* Ajusta el espacio entre los ion-items */
   }
 
   ion-input {
     max-width: 80%;
+    margin-top: 10px; /* Ajusta el espacio entre el ion-input y el elemento anterior */
+  }
+
+  .Registrar-button {
+    width: 160px;
+    margin-top: 20px; /* Ajusta el espacio entre el ion-input y el botón */
+    margin: 20px ; /* Centra el botón horizontalmente */
+
   }
 
 
-  
   .profile-picture {
     border-radius: 50%;
     border: 4px solid white;
-  }
-  .Registrar-button{
-    width: 160px;
-    margin: 10px auto;
-    display: block;
+    width: 100%; /* Haz que la imagen ocupe todo el ancho disponible */
   }
 }

@@ -10,53 +10,52 @@ ion-content {
 .bienvenida-container {
   position: relative;
   text-align: center;
-  margin-top: 0px;
+  margin-top: -20px;
+}
 
-  img {
-    opacity: 0.3;
-    color: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* Ajustar el ancho según tus necesidades */
-    height: 625px;
-    /* Mantener la proporción original de la imagen */
-    margin-bottom: 20px;
-    /* Agregar margen inferior a la imagen */
-  }
+.bienvenida-container img {
+  opacity: 0.3;
+  color: transparent;
+  position: absolute;
+  top: 0px;
+  left: 20;
+  width: 100%;
+  height: 50px; /* Permitir que la altura se ajuste automáticamente */
+  max-height: 400px; /* Establecer una altura máxima si es necesario */
+  margin-bottom: 20px;
+}
 
-  .bienvenida-title {
-    position: relative;
-    font-size: 50px;
-    margin-bottom: 10px;
-    color: white;
-    /* Asegura que el texto sea visible sobre la imagen */
-  }
 
-  p {
-    position: relative;
-    display: flex;
-    font-size: 20px;
-    width: 200px;
-    margin-bottom: 100px;
-    margin-left: 25%;
-    margin-top: 10%;
-    align-items: center;
-    justify-content: center;
-    /* Asegura que el texto sea visible sobre la imagen */
-  }
+.bienvenida-title {
+  position: relative;
+  font-size: 50px;
+  margin-bottom: 10px;
+  color: white;
+  /* Asegura que el texto sea visible sobre la imagen */
+}
 
-  .alumnos-button,
-  .profesores-button,
-  .crearCuenta-button {
-    position: relative;
-    display: flex;
-    width: 200px;
-    height: 70px;
-    margin-bottom: 50px;
-    margin-left: 25%;
-    align-items: center;
-    justify-content: center;
-  }
+.bienvenida-container p {
+  position: relative;
+  display: flex;
+  font-size: 20px;
+  width: 200px;
+  margin-bottom: 100px;
+  margin-left: 25%;
+  margin-top: 10%;
+  align-items: center;
+  justify-content: center;
+  /* Asegura que el texto sea visible sobre la imagen */
+}
+
+.alumnos-button,
+.profesores-button,
+.crearCuenta-button {
+  position: relative;
+  display: flex;
+  width: 180px;
+  height: 70px;
+  margin-bottom: 50px;
+  margin-left: 25%;
+  align-items: center;
+  justify-content: center;
 }

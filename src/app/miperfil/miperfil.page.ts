@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -7,31 +7,50 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './miperfil.page.html',
   styleUrls: ['./miperfil.page.scss'],
 })
-
-@Component({
-  selector: 'app-miperfil',
-  templateUrl: './miperfil.page.html',
-  styleUrls: ['./miperfil.page.scss'],
-})
 export class MiperfilPage {
   username: string = ''; // Almacena el nombre de usuario
-  profilePicture: string = 'URL_DE_TU_IMAGEN'; // URL de la foto de perfil (reemplaza con tu URL real)
 
   // Propiedades para los datos del usuario
-  nombreCompleto: string = 'Sergio mellado';
-  correo: string = 'Serg.mellado@duocuc.cl';
-  telefono: string = '123456789';
-  direccion: string = 'Los Palomos 1234'; // Ajusté la dirección para capitalizar correctamente
+  nombreCompleto: string = '';
+  correo: string = '';
+  telefono: string = '';
+  direccion: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  ionViewWillEnter() {
+  async ionViewWillEnter() {
     // Verificar si el usuario está autenticado al entrar en la vista
     if (!this.authService.isAuthenticated()) {
       // Si no está autenticado, redirigir al login
       this.router.navigateByUrl('/login');
+    } else {
+      // Si está autenticado, obtener el nombre de usuario del servicio
+      this.username = await this.authService.getUsername();
+      // Obtener otros datos del perfil
+      this.loadProfileData();
     }
   }
 
+  private loadProfileData() {
+    // Lógica para cargar datos del perfil desde tu servicio o almacenamiento
+    this.authService.getProfileData().then((data) => {
+      this.nombreCompleto = data.nombreCompleto;
+      this.correo = data.correo;
+      this.telefono = data.telefono;
+      this.direccion = data.direccion;
+    });
+  }
 
+  guardarCambios() {
+    // Lógica para guardar cambios en tu servicio o almacenamiento
+    const newData = {
+      nombreCompleto: this.nombreCompleto,
+      correo: this.correo,
+      telefono: this.telefono,
+      direccion: this.direccion,
+    };
+    this.authService.saveProfileData(newData).then(() => {
+      console.log('Cambios guardados exitosamente.');
+    });
+  }
 }
