@@ -15,6 +15,15 @@ export class FirebaseService {
       'Ingresa Seccion': ingresaSeccion,
     });
   }
+  addPerfil(idUnico: string,nombreCom: string, email: string, fono: number) {
+    const nuevoDocumento = doc(collection(this.db, 'Perfil'), idUnico);
+
+    return setDoc(nuevoDocumento, {
+      'Nombre Completo': nombreCom,
+      'Correo': email,
+      'Télefono' : fono,
+    });
+  }
 
   addRegistroAlumno(idUsuario: string, idClase: string, ingresaSeccion: string) {
 

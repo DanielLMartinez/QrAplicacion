@@ -41,16 +41,4 @@ export class MiperfilPage {
     });
   }
 
-  guardarCambios() {
-    // Lógica para guardar cambios en tu servicio o almacenamiento
-    const newData = {
-      nombreCompleto: this.nombreCompleto,
-      correo: this.correo,
-      telefono: this.telefono,
-      direccion: this.direccion,
-    };
-    this.authService.saveProfileData(newData).then(() => {
-      console.log('Cambios guardados exitosamente.');
-    });
-  }
 }
