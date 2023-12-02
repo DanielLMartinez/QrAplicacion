@@ -24,29 +24,31 @@ export class CrearCuentaPage implements OnInit {
   get nombreCom() { return this.credentials.get('nombreCom'); }
   get password() { return this.credentials.get('password'); }
   get tipoCuenta() { return this.credentials.get('tipoCuenta'); }
+  get direccion() { return this.credentials.get('direccion'); }
 
   ngOnInit() {
     this.credentials = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      fono: ['', Validators.required], // Agregado campo 'fono'
-      nombreCom: ['', Validators.required], // Agregado campo 'nombreCom'
+      fono: ['', Validators.required],
+      nombreCom: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
       tipoCuenta: ['', Validators.required],
+      direccion: ['', Validators.required]
     });
   }
 
   async registrar() {
     console.log("intentando registrar");
-
+  
     const tipoCuentaControl = this.credentials.get('tipoCuenta');
-
+  
     if (tipoCuentaControl) {
       const tipoCuenta = tipoCuentaControl.value;
       const user = await this.authService.register({
         ...this.credentials.value,
         tipoCuenta: tipoCuenta
       });
-
+  
       if (user) {
         console.log("usuario registrado");
         this.router.navigateByUrl('/bienvenido', { replaceUrl: true });

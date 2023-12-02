@@ -4,11 +4,12 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthService } from './services/auth.service';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { AuthService } from './services/auth.service';
+import { FirebaseService } from './services/firebase.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,9 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
     provideDatabase(() => getDatabase())
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AuthService,
+    FirebaseService
   ],
   bootstrap: [AppComponent],
 })

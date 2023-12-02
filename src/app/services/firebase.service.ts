@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, collection, doc, setDoc } from 'firebase/firestore';
+import { getFirestore, collection, doc, setDoc, DocumentReference, DocumentSnapshot, DocumentData} from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -15,13 +15,15 @@ export class FirebaseService {
       'Ingresa Seccion': ingresaSeccion,
     });
   }
-  addPerfil(idUnico: string,nombreCom: string, email: string, fono: number) {
+  
+  addPerfil(idUnico: string, nombreCom: string, email: string, fono: number, direccion: string) {
     const nuevoDocumento = doc(collection(this.db, 'Perfil'), idUnico);
 
     return setDoc(nuevoDocumento, {
       'Nombre Completo': nombreCom,
       'Correo': email,
-      'Télefono' : fono,
+      'Teléfono': fono,
+      'Dirección': direccion,
     });
   }
 
@@ -41,4 +43,10 @@ export class FirebaseService {
     const id = doc(collection(firestore, 'dummy')).id;
     return id;
   }
+
+  getPerfil(userId: string): DocumentReference<DocumentData> {
+    return doc(collection(this.db, 'Perfil'), userId);
+  }
+
+
 }

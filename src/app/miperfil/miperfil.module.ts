@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MiperfilPage } from './miperfil.page';
 
 @NgModule({
@@ -9,8 +9,11 @@ import { MiperfilPage } from './miperfil.page';
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,  // Asegúrate de agregar esta línea
-    FormsModule,  // Asegúrate de agregar esta línea
+    IonicModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
 })
 export class MiperfilPageModule {}
+export { MiperfilPage };
+

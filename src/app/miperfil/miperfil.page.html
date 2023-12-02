@@ -1,19 +1,25 @@
-<!-- Sección del nombre de usuario -->
-<h1>¡Bienvenido!, {{ username }}</h1>
+<ion-content>
+  <!-- Sección del nombre de usuario -->
+  <h1>¡Bienvenido!, {{ username }}</h1>
 
-<!-- Sección de información del perfil -->
-<ion-item>
-  <ion-label position="floating">Nombre Completo</ion-label>
-  <ion-input [value]="getFieldValue('nombreCom')"></ion-input>
-</ion-item>
+  <!-- Sección de información del perfil -->
+  <ion-item>
+    <ion-label position="floating">Nombre Completo</ion-label>
+    <ion-input [(ngModel)]="nombreCompleto" disabled></ion-input>
+  </ion-item>
 
-<ion-item>
-  <ion-label position="floating">Correo</ion-label>
-  <ion-input [value]="getFieldValue('email')"></ion-input>
-</ion-item>
+  <ion-item>
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input [(ngModel)]="correo" disabled></ion-input>
+  </ion-item>
 
-<ion-item>
-  <ion-label position="floating">Teléfono</ion-label>
-  <ion-input [value]="getFieldValue('fono')"></ion-input>
-</ion-item>
+  <ion-item>
+    <ion-label position="floating">Teléfono</ion-label>
+    <ion-input [(ngModel)]="telefono" disabled></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label position="floating">Dirección</ion-label>
+    <ion-input [(ngModel)]="direccion" disabled></ion-input>
+  </ion-item>
+</ion-content>
